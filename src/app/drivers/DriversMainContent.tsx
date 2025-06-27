@@ -184,7 +184,7 @@ console.log(editingId != null && editingVehicleId && !showReassign);
             />
             </div>
           <div>
-            <label className="block mb-1">Phone</label>
+            <label className="block mb-1">Phone Number</label>
             <input
              name="phone"
              type="text"
@@ -292,7 +292,7 @@ console.log(editingId != null && editingVehicleId && !showReassign);
           <tr>
             <th className="px-4 py-2 text-left">Name</th>
             <th className="px-4 py-2 text-left">License</th>
-             <th className="px-4 py-2 text-left">Phone</th>
+             <th className="px-4 py-2 text-left">Phone Number</th>
             <th className="px-4 py-2 text-left">Vehicle</th>
             <th className="px-4 py-2 text-left">Actions</th>
           </tr>
