@@ -3,6 +3,7 @@ export interface Driver {
   email?:string,
   password?:string,
   name: string;
+  phone?: string;
   license: string;
   userId: number;
   vendorId: number;
