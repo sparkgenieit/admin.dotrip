@@ -21,6 +21,7 @@ export default function DriversMainContent() {
   const [formData, setFormData] = useState<Omit<Driver, 'id'>>({
     name: '',
     license: '',
+    phone: '',                 
     userId: userId || 0,
     email: '',
     password: '',
@@ -79,6 +80,7 @@ const startEdit = (d: Driver) => { console.log('KKKK',d.user);
     vendorId: Number(d.vendorId),
     vehicleId: Number(d.user.vehiclesAsDriver[0]?.id),
     email: d.user.email || '', // show only in div
+    phone: d.user?.phone || '',
     password: '',         // not used in edit
   });
   setEditingId(d.id!);
@@ -181,6 +183,17 @@ console.log(editingId != null && editingVehicleId && !showReassign);
               required
             />
             </div>
+          <div>
+            <label className="block mb-1">Phone Number</label>
+            <input
+             name="phone"
+             type="text"
+             className="border p-2 w-full"
+             value={formData.phone || ''}
+             onChange={handleChange}
+             required 
+             />
+          </div>
             {editingId == null ? (
   <>
     <div>
@@ -279,6 +292,7 @@ console.log(editingId != null && editingVehicleId && !showReassign);
           <tr>
             <th className="px-4 py-2 text-left">Name</th>
             <th className="px-4 py-2 text-left">License</th>
+             <th className="px-4 py-2 text-left">Phone Number</th>
             <th className="px-4 py-2 text-left">Vehicle</th>
             <th className="px-4 py-2 text-left">Actions</th>
           </tr>
@@ -288,6 +302,7 @@ console.log(editingId != null && editingVehicleId && !showReassign);
             <tr key={d.id} className="border-t">
               <td className="px-4 py-2">{d.name}</td>
               <td className="px-4 py-2">{d.license}</td>
+              <td className="px-4 py-2">{d.user?.phone || '—'}</td>
             <td className="px-4 py-2">
               {d.user.vehiclesAsDriver?.[0]
                 ? `${d.user.vehiclesAsDriver[0].name} ${d.user.vehiclesAsDriver[0].model}`
